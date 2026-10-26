@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals: { supabase } }) => {
+export const load: LayoutServerLoad = async ({ locals: { supabase } }) => {
 
   const { data: { user }, error } = await supabase.auth.getUser();
   if (error || !user) {
